@@ -1,0 +1,111 @@
+.body-container {
+  font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 72px;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.125em;
+  color: #333;
+  line-height: 1.5em;
+  background-color: rgb(251, 207, 232);
+}
+
+h1, h2, h3 {
+  color: #000;
+}
+h1 {
+  font-size: 2.5em
+}
+
+h2 {
+  font-size: 2em
+}
+
+h3 {
+  font-size: 1.5em
+}
+
+a {
+  text-decoration: none;
+  /* color: #09f; */
+  background-color: rgb(34, 197, 94);
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  /* cursor: pointer; */
+  padding: 0.75rem;
+}
+
+a:hover {
+  background-color: rgb(74, 222, 128);
+}
+
+.logo {
+  width: 15rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+input[type=file] {
+    display: none;
+}
+
+.select-file {
+  background-color: rgb(59, 130, 246);
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem;
+  transition: background-color 250ms;
+}
+
+.select-file:hover {
+  background-color: rgb(96, 165, 250);
+}
+
+.select-file:disabled {
+  background-color: rgb(148, 163, 184);
+  cursor: default;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-spinner {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-spinner svg {
+  height: 24px;
+  width: 24px;
+  animation: spin 1s linear infinite;
+}
+
+.btn-spinner svg circle {
+  opacity: 0.25;
+}
+
+.btn-spinner svg path {
+  opacity: 0.75;
+}
+
