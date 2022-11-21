@@ -13,11 +13,7 @@ function setLoading(value) {
 }
 
 function renderDownload(link) {
-    let content = ''
-
-    if (link.length > 0) {
-        content = `<a href="${link}" download>Baixar imagem</a>`
-    }
+    const content = (link.length > 0) ? `<a href="${link}" download>Baixar imagem</a>` : ''
 
     download.innerHTML = content
 }
@@ -28,6 +24,8 @@ button.addEventListener('click', () => input.click())
 
 input.addEventListener('change', event => {
     const file = event.target.files[0]
+
+    renderDownload('')
 
     const form = new FormData()
     form.append('file', file)
