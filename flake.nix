@@ -11,7 +11,8 @@
       in
       {
         devShell = with pkgs; mkShell {
-          buildInputs = [
+          packages = [
+            fswatch # To run the frontend while watching for changes
             nim
             nimlsp
           ];

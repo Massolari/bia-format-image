@@ -19,7 +19,7 @@ composite \
     -verbose \
     -compose screen \
     \( public/img/logo.png \
-        -gravity NorthEast \
+        -gravity "$1" \
         -resize "$logo_dimension_str" \
         -geometry +10+40 \
     \) \
