@@ -15,20 +15,21 @@ proc home*(ctx: Context) {.async.} =
   await ctx.staticFileResponse("index.html", "public")
 
 proc applyLogo*(ctx: Context) {.async.} =
-  let file = ctx.getUploadFile("file")
-  let extension = file.filename.split('.')[^1]
+  let
+    file = ctx.getUploadFile("upload_file")
+    extension = file.filename.split('.')[^1]
+    logoPosition = ctx.getQueryParams("position", "NorthEast")
   echo(fmt"File extension: {extension}")
   file.save(imagesPath, fmt"{imageName}.{extension}")
 
-  let result = execShellCmd("sh ./apply_watermark.sh")
-
-  var
-    status = 200
-    body = fmt"/{imagesPath}/{resultName}"
-
-  if result == 1:
-      status = 500
-      body = "An error occurred"
+  let
+    result = execShellCmd("sh ./apply_watermark.sh " & logoPosition)
+    (status, body) = (
+      if result == 1:
+        (500, "An error has occurred")
+      else:
+        (200, fmt"/{imagesPath}/{resultName}")
+    )
 
   resp jsonResponse(%*{"status": status, "body": body})
 
