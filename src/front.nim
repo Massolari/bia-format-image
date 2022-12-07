@@ -1,3 +1,5 @@
+{.experimental: "caseStmtMacros".}
+
 include karax/[prelude, kajax]
 import fusion/matching
 import std/options
